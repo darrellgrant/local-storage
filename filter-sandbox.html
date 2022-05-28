@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FILTER SANDBOX</title>
+  </head>
+  <body>
+    <h1>Filter Method</h1>
+    <script>
+      const grades = [68, 90, 96, 79, 73, 90];
+      const nums = [{ x: 1 }, { x: 2 }, { x: 3 }];
+
+      console.log(nums[0].x); // output: 1
+
+      //common usage is to sum up the values of given numbers
+      const summedGrades = grades.reduce(function (acc, val) {
+        return acc + val;
+      }, 0);
+
+      console.log(summedGrades); //output: 496
+
+      let mySum = 0;
+      for (let grade of grades) {
+        mySum += grade;
+      }
+      console.log(mySum); //output: 496
+
+      let total = 0;
+      for (let i = 0; i < grades.length; i++) {
+        total += grades[i];
+      }
+      console.log(total); //output: 496
+      //*************************************************
+
+      //To sum up the values contained in an array of objects
+      //you must supply an initialValue
+      //so that each item passes through your function
+
+      let initialValue = 0;
+      let sum = nums.reduce(function (acc, val) {
+        //console.log("acc", acc);
+        //console.log(val.x);
+        return acc + val.x;
+      }, initialValue);
+      console.log(sum);
+      //output 6
+
+      //**********************************
+      //using "map" as a filter:
+      const numbers = [1, 2, 3, 4];
+      const filteredNumbers = numbers.map(function (num, index) {
+        console.log(index, num);
+        if (index < 3) {
+          return num;
+        }
+      });
+      console.log(filteredNumbers);
+      //output [1,2,3, undefined]
+      // 4th iteration is "false" but map must return something
+      //whereas "filter" returns only if the provided test is passed
+
+      //**********************************
+
+      const items = [
+        { id: 1, name: "Coffee Maker", quantity: 3, amount: 29.22 },
+        { id: 2, name: "Toaster Oven", quantity: 1, amount: 129.19 },
+        { id: 3, name: "Chef's Knife", quantity: 10, amount: 39.38 },
+        { id: 4, name: "Deep Fryer", quantity: 4, amount: 209.61 },
+        { id: 5, name: "Espresso Machine", quantity: 2, amount: 89.49 },
+      ];
+      const taxRate = 0.0625;
+      const cart = items.reduce(
+        (acc = {}, item = {}) => {
+          //default values made no diff
+          console.log(acc);
+          const itemTotal = parseFloat(
+            (item.amount * item.quantity).toFixed(2)
+          );
+          const itemTotalTax = parseFloat((itemTotal * taxRate).toFixed(2));
+          acc.subtotal = parseFloat((acc.subtotal + itemTotal).toFixed(2));
+          acc.tax = parseFloat((acc.tax + itemTotalTax).toFixed(2));
+          acc.total = parseFloat(
+            (acc.total + itemTotal + itemTotalTax).toFixed(2)
+          );
+
+          return acc;
+        },
+        {
+          subtotal: 0,
+          tax: 0,
+          total: 0,
+        }
+      );
+
+      console.log(cart);
+      //{subtotal: 1628.07, tax: 101.75, total: 1729.82}
+
+      const students = [
+        {
+          userid: "stevenh",
+          name: "Steven",
+          passFail: true,
+        },
+        {
+          userid: "debbw",
+          name: "Debbie",
+          passFail: true,
+        },
+        {
+          userid: "maxv",
+          name: "Max",
+          passFail: false,
+        },
+      ];
+
+      var studentObj = students.reduce(function (acc, person) {
+        return { ...acc, [person.userid]: person };
+      }, {});
+
+      console.log(studentObj);
+      //returns an object containing    three properties, each property is an object
+    </script>
+  </body>
+</html>

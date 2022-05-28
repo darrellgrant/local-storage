@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandbox 3</title>
+  </head>
+  <body>
+    <script>
+      const heroes = [
+        {
+          id: 001,
+          name: "Big John",
+          city: "New York",
+        },
+        {
+          id: 002,
+          name: "Tall Sally",
+          city: "New York",
+        },
+        {
+          id: 003,
+          name: "Dark Mark",
+          city: "Las Angeles",
+        },
+        {
+          id: 004,
+          name: "Ranger Rick",
+          city: "Seattle",
+        },
+        {
+          id: 005,
+          name: "Tricky Vicky",
+          city: "New York",
+        },
+        {
+          id: 006,
+          name: "Citizen Cane",
+          city: "Boston",
+        },
+        {
+          id: 007,
+          name: "Mighty Whitey",
+          city: "London",
+        },
+        {
+          id: 08,
+          name: "Plain Jane",
+          city: "New York",
+        },
+      ];
+
+      const words = ["hello", "bird", "table", "foot"];
+      const grades = [98.2, 98.3, 77.9, 73, 89, 90, 85.5, 90.2];
+      const employee = {
+        name: "Dave Davis",
+        id: 2097866,
+        occupation: "Clerk",
+        supervisor: true,
+      };
+
+      //for in
+      for (let key in employee) {
+        console.log(key);
+      }
+      for (let key in employee) {
+        console.log(employee[key]);
+      }
+
+      //for of
+      for (let grade of grades) {
+        console.log(grade);
+      }
+
+      //forEach
+      words.forEach(function (word) {
+        console.log(word);
+      });
+
+      //map
+      const newWords = words.map(function (word) {
+        return word.toUpperCase();
+      });
+
+      console.log(words, newWords);
+
+      //filter
+      const newHeroes = heroes.filter(function (hero) {
+        if (hero.city == "New York") {
+          return hero;
+        }
+      });
+      console.log(newHeroes);
+
+      //reduce (acc,val)
+      const sum = grades.reduce(function (acc, val) {
+       return acc + val;
+      });
+      console.log(sum);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rest and Spread Operators</title>
+  </head>
+
+  <body>
+    <p>
+      Spread syntax allows an iterable (such as an array or string) to be
+      expanded in places where zero o more arguments (for function calls) are
+      expected or an object expression to be expanded in places where zero or
+      more key-value pairs (for obj literals) are expected.
+    </p>
+    <p>We can use Spread basically in 3 places</p>
+
+    <ol>
+      <li>In function calls</li>
+      <li>In array literals</li>
+      <li>In object literals</li>
+    </ol>
+
+    <p>
+      <b>Note:</b> spread used in function calls<br />
+      rest used in function definitions.
+    </p>
+    <p>
+      rest operator condenses an indefinite number of arguments into a type of
+      array. Similar to spread operator, but used within a function's parameters
+    </p>
+    <script>
+      const evenNumbers = [2, 4, 6, 8];
+      let numbers = [7, 42, 70, 36, 0, -7, 14];
+      const names = [
+        "Kwame",
+        "Lance",
+        "Duck",
+        "Shockley",
+        "Foley McShea",
+        "Robert Fandango",
+      ];
+      const assorted = [
+        true,
+        false,
+        129,
+        "twelve",
+        "The End is Near",
+        23.4,
+        null,
+      ];
+      const employee = {
+        name: "Dave Heck",
+        occupation: "Supervisor",
+        id: 1230,
+        address: {
+          street: "75 Mason street",
+        },
+      };
+
+      const workplace = {
+        store: "Wal-Mart",
+        hours: "0600 AM to 11 PM",
+        capacity: "3000 sq ft",
+      };
+      const log = console.log;
+
+      //add element of an existing array into a new array
+      const newNumbers = [456, 8998, 36.89, ...numbers, 567, 90010];
+      log(newNumbers);
+
+      //pass elements of an array as arguments to a function
+
+      function addNumbers(x, y, z, xx) {
+        return x + y + z + xx;
+      }
+
+      log(addNumbers(...evenNumbers));
+
+      //copy arrays
+
+      const assorted2 = [...assorted];
+      console.log(assorted2);
+
+      //concatenate arrays
+      numbers = [...numbers, ...evenNumbers];
+      log(numbers);
+
+      log(Math.min(numbers)); //Nan
+      log(Math.min(...numbers));
+
+      //combine object literals
+      const newArr = { ...employee, ...workplace };
+      log(newArr);
+      //REST OPERATOR***************************************************
+      function sum(...args) {
+        let total = 0;
+        // for (let i in args) {
+        //   total += args[i];
+        // }
+        //
+        //output: 45
+        // "in" normally used for objects, however in this syntax (args[i])
+        //will return the value at that index - the syntax (total+= i) will return 
+        //NaN b/c args is not an obj
+        //
+        // for (let i of args) {
+        //   total = total + i;
+        // }
+        //
+        //output: 45
+        for (let i of args) {
+          total += i;
+        }
+        //output 45
+
+        return total;
+      }
+
+      log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+      //add a+b + any number of unknown args
+
+      function addition(a, b, ...args) {
+        let num = a + b;
+        // for (let n of args) {
+        //   num = num + n;
+        // }
+
+        for (let n of args) {
+          num += n;
+        }
+        return num;
+      }
+
+      log(addition(4, 4, 8, 8));
+    </script>
+  </body>
+</html>

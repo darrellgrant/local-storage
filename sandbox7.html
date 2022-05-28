@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .para-highlight {
+        width: 700px;
+        background-color: yellow;
+        border: 2px solid black;
+        padding: 5px;
+      }
+    </style>
+
+    <title>Local Storage Sandbox</title>
+  </head>
+  <body>
+    <h1>Local Storage Sandbox 1</h1>
+    <p class="para-highlight">
+      From MDN: The localStorage read-only property of the window interface
+      allows you to access a Storage object for the Document's origin; the
+      stored data is saved accross browser sessions.
+    </p>
+    <p></p>
+    <button id="myButton">PRESS</button><br /><br />
+    <div id="message"></div>
+    <button id="completedBTN">COMPLETE</button><br /><br />
+
+    <script>
+      const myTasks = {
+        1: "map method",
+        2: "filter method",
+        3: "reduce method",
+        4: "forEach loop",
+        5: "object.create()",
+        6: "for in loop",
+        7: "for of loop",
+        8: "setTimeout",
+        9: "create an element",
+        10: "object.assign()",
+        11: "addEventListener",
+        12: "arguments object",
+        13: "pre tag",
+        14: "spread operator",
+        15: "rest operator",
+        16: "arrow function",
+        17: "immediately invoked function expression",
+        18: "closure",
+        19: "callbacks",
+        20: "fetch API",
+      };
+
+      const myButton = document.querySelector("#myButton");
+      const completedBTN = document.querySelector("#completedBTN");
+
+      let myMessage = document.querySelector("#message");
+
+      //const myString = localStorage.getItem("completedTasks");
+
+      //console.log(JSON.parse(myString));
+
+      let completedTasks = [];
+      //console.log(myString);
+
+      const retrieveTasks = localStorage.getItem("completedTasks");
+
+      function lookUpNumber(obj) {
+        let number = Math.floor(Math.random() * 20) + 1;
+        return obj[number];
+      }
+
+      myButton.addEventListener("click", function () {
+        myMessage.innerText = lookUpNumber(myTasks);
+      });
+      completedBTN.addEventListener("click", function () {
+        console.log(completedTasks);
+        completedTasks.push(myMessage.innerText);
+        let completedTaskArray = JSON.stringify(completedTasks);
+        localStorage.setItem("completedTasks", completedTaskArray);
+      });
+
+      // const completedTaskArray = JSON.stringify(completedTasks);
+      // console.log(completedTaskArray);
+      // localStorage.setItem("completedTasks", completedTaskArray);
+
+      // const myObjString = JSON.stringify(myTasks);
+      // console.log(myObjString);
+      // console.log(typeof myObjString); //string
+      // localStorage.setItem("testItem", myObjString);
+
+      // const retrieveObj = localStorage.getItem("testItem");
+      // console.log(JSON.parse(retrieveObj));
+
+      // const arr = ["Hey", "Bartender"];
+      // localStorage.setItem("myARRAY", JSON.stringify(arr));
+      // arr.push("plasma");
+      // console.log(arr);
+    </script>
+  </body>
+</html>

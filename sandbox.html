@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandbox</title>
+  </head>
+  <body>
+    <script>
+      const heroes = [
+        {
+          id: 001,
+          name: "Big John",
+          city: "New York",
+        },
+        {
+          id: 002,
+          name: "Tall Sally",
+          city: "New York",
+        },
+        {
+          id: 003,
+          name: "Dark Mark",
+          city: "Las Angeles",
+        },
+        {
+          id: 004,
+          name: "Ranger Rick",
+          city: "Seattle",
+        },
+        {
+          id: 005,
+          name: "Tricky Vicky",
+          city: "New York",
+        },
+        {
+          id: 006,
+          name: "Citizen Cane",
+          city: "Boston",
+        },
+        {
+          id: 007,
+          name: "Mighty Whitey",
+          city: "London",
+        },
+      ];
+
+      const words = ["hello", "bird", "table", "foot"];
+
+      //for in
+      //used for objects
+      const employee01 = {
+        name: "Dave Davis",
+        id: 2097866,
+        occupation: "Clerk",
+        supervisor: true,
+      };
+
+      //keys
+      for (key in employee01) {
+        console.log(key);
+      }
+      //values
+      for (let key in employee01) {
+        console.log(employee01[key]);
+      }
+
+      //for of
+      //used for arrays and strings
+      const superheroes = [
+        "Superman",
+        "Spider-Man",
+        "Hulk",
+        "Thor",
+        "Bat Man",
+        "Captain Carrot",
+      ];
+
+      for (let hero of superheroes) {
+        console.log(hero);
+      }
+
+      const charName = "Lana Lang";
+      for (let char of charName) {
+        console.log(char);
+      }
+
+      //forEach
+      //called on the array itself
+      const grades = [98.2, 98.3, 77.9, 73, 89, 90, 85.5, 90.2];
+      grades.forEach((grade) => console.log(grade));
+
+      //map
+      //with anon function
+      const improvedGrades = grades.map(function (grade, index, arr) {
+        if (grade < 90) {
+          return (arr[index] = Math.floor(grade * 1.05));
+        } else {
+          return grade;
+        }
+      });
+      console.log("improved 1: " + improvedGrades);
+      grades.forEach((grade) => console.log(grade));
+
+      //with named function
+      function improveGrade(grade, index, arr) {
+        if (grade < 90) {
+          return (arr[index] = Math.floor(grade * 1.05));
+        } else {
+          return grade;
+        }
+      }
+      const improvedGrades2 = grades.map(improveGrade);
+      console.log("improved 2: " + improvedGrades2);
+
+      
+     
+      
+
+      //filter
+      const nonNYBasedHeroes = heroes.filter(function (hero) {
+        if (hero.city != "New York") {
+          return hero;
+        }
+      });
+      console.log(nonNYBasedHeroes);
+
+      //reduce
+
+      const minGrade = grades.reduce(function (acc, val) {
+        if (val < acc) {
+          acc = val;
+        }
+        return acc;
+      });
+      console.log("minimum: " + minGrade);
+      console.log("grades: " + grades);
+      console.log("improved:" + improvedGrades);
+
+      //spread
+
+      //rest
+    </script>
+  </body>
+</html>

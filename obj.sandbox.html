@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OBJECT SANDBOX</title>
+  </head>
+  <body>
+    <script>
+      //OBJECT.CREATE
+      const person = {
+        firstname: "John",
+        secondname: "Smith",
+      };
+      console.log(person["firstname"]); //John
+      console.log(person.firstname); //John
+      console.log(person.hasOwnProperty("firstname"))
+      for (let key in person) {
+        console.log(key);
+      }
+
+      let obj2 = Object.create(person, {});
+      obj2.nickname = "pookie";
+      console.log(obj2.firstname);
+      console.log(obj2.hasOwnProperty("nickname")); //true
+      console.log(obj2.hasOwnProperty("firstname"));//false
+      for (let key in obj2) {
+        console.log(key);
+      }
+
+      console.log(obj2);
+    </script>
+  </body>
+</html>

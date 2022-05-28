@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <form action=""></form>
+    <script>
+      const evenNumbers = [2, 4, 6, 8];
+      const numbers = [7, 42, 70, 36, 0, 14];
+      const names = [
+        "Kwame",
+        "Lance",
+        "Duck",
+        "Shockley",
+        "Foley McShea",
+        "Robert Fandango",
+      ];
+      const assorted = [
+        true,
+        false,
+        129,
+        "twelve",
+        "The End is Near",
+        23.4,
+        null,
+      ];
+      const employee = {
+        name: "Dave Heck",
+        occupation: "Supervisor",
+        id: 1230,
+        address: {
+          street: "75 Mason street",
+        },
+      };
+
+      const nuNames = names.filter(function (name) {
+        return name.length > 6;
+      });
+
+      console.log(nuNames)
+
+      const arr = evenNumbers.filter(function (number) {
+        if (number * 2 > 10) {
+          return number;
+        }
+      });
+      console.log("arr is ", arr);
+
+      const moreNumbers = numbers.filter(function (number) {
+        if (number / 2 > 25) {
+          return number;
+        }
+      });
+
+      let i = 0;
+      while (i < 10) {
+        console.log(i);
+        i++;
+      }
+
+      for (let item in employee) {
+        console.log(item);
+      }
+
+      numbers.forEach(function (number) {
+        let doubleNumber = number * 2;
+        numbers.push(doubleNumber);
+      });
+      console.log("Here are doubles ", numbers);
+
+      const doubleTheNumber = numbers.map(function (number) {
+        return number * 2;
+      });
+      console.log("We now double that...", doubleTheNumber);
+
+      const filteredNumbers = doubleTheNumber.filter(function (number) {
+        if (number > 100) {
+          return number;
+        }
+      });
+      console.log(filteredNumbers);
+
+      console.log(moreNumbers, evenNumbers, numbers);
+      console.table(numbers);
+      console.table(assorted);
+
+      for (let prop in employee) {
+        console.log(prop);
+      }
+      for (let prop in employee) {
+        console.log(prop, employee[prop]);
+      }
+
+      for (const item of assorted) {
+        console.log(item);
+      }
+
+      console.log(employee.hasOwnProperty("stree"))
+
+      let log = console.log;
+      log("Hello")
+
+      for (const prop in employee) {
+        log(prop)
+      }
+
+      console.dir(window)
+
+      const unique = new Set("Steve"); //{"S", "t", "e", "v"}
+      unique.add(1); //{"S", "t", "e", "v", 1}
+      console.log(unique);
+
+      for (const number in numbers) {
+        console.log(number);
+      }
+
+      numbers.forEach(function (item) {
+        console.log(item);
+      });
+
+      for (const property in employee) {
+        console.log(employee[property]);
+      }
+
+      for (const name of names) {
+        console.log(name);
+      }
+
+      names.forEach(function (item, index, array) {
+        console.log(item);
+      });
+
+      const newNames = names.map(function (item) {
+        return "Hey " + item;
+      });
+      console.log(newNames);
+
+      const newNumbers = numbers.filter(function (item) {
+        if (item % 7 == 0) {
+          return item;
+        }
+      });
+
+      const newEvenNumbers = evenNumbers.filter(function (item) {
+        if (item % 2 == 0) return item;
+      });
+
+      console.log(newNumbers);
+      console.log("new even numbers " + newEvenNumbers);
+      console.log(
+        typeof (newNumbers + newEvenNumbers)
+      ); /*returns a string!!!!*/
+      log(newNumbers, newEvenNumbers) //returns two arrays
+      console.log(typeof `${newNumbers + newEvenNumbers}`); //returns a string
+
+      const mybool = false;
+      console.log(mybool + " HEY!"); //returns a string
+
+      const greaterNumbers = newNumbers.filter(function (item) {
+        if (item > 40) return item;
+      });
+
+      console.log(greaterNumbers); // [42, 70]
+      for (let name of names) {
+        console.log(name);
+      }
+
+      console.log(employee);
+      console.log(employee.hasOwnProperty("name")); //true
+
+      for (let item in employee) {
+        console.log(item);
+      }
+
+      for (let item in employee) {
+        console.log(item + " : " + employee[item]);
+      }
+
+      const longerNames = names.filter(function (name) {
+        if (name.length > 6) return name;
+      });
+
+      console.log(longerNames);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SANDBOX 5</title>
+  </head>
+  <body>
+    <script>
+      const grades = [99, 72, 90, 88, 94, 99, 67];
+
+      evens = grades.filter(function (grade) {
+        return grade % 2 == 0;
+      });
+      console.log(evens);
+
+      let randomNumbers = [75.67878, 89.9099, 35.899, 56.990001, 66.67773];
+      randomNumbers = randomNumbers.map(function (val) {
+        return val.toFixed(2);
+      });
+
+      const myObj = {
+        first: "Larry",
+        last: "Smith",
+        state: "GA",
+      };
+
+      
+      const f = "first";
+      console.log(myObj.first);
+      console.log(myObj["first"]);
+      console.log(myObj[f]);
+
+      console.log(randomNumbers); //['75.68', '89.91', '35.90', '56.99', '66.68']
+
+      randomNumbers = randomNumbers.map(function (val) {
+        return Math.round(val);
+      });
+
+      console.log(randomNumbers);
+
+      const stringNumbers = ["5", "55", "55 the way", "99Sunset Strip"];
+      const convertedNumbers = stringNumbers.map(function (val) {
+        return Number(val); // [5, 55, NaN, NaN]
+      });
+      console.log(convertedNumbers);
+
+      const myNumber = grades.reduce(function (acc, val) {
+        return acc + val;
+      }, 0);
+      console.log(myNumber);
+      const names = ["Fred", "Ted", "Jed", "Seymore"];
+      const movie01 = {
+        title: "The Man from La Mancha",
+        year: 1965,
+        director: "unknown",
+      };
+
+      //for loop
+      for (let i = 0; i < names.length; i++) {
+        console.log(names[i]);
+      }
+      //while loop
+      let k = 0;
+      while (k < names.length) {
+        console.log(names[k]);
+        k++;
+      }
+      //for in
+      for (let key in movie01) {
+        console.log(key);
+      }
+      for (let key in movie01) {
+        console.log(key, movie01[key]);
+      }
+
+      //for of
+
+      for (let grade of grades) {
+        console.log(grade);
+      }
+
+      //forEach
+
+      names.forEach(function (name) {
+        console.log(name);
+      });
+      //map
+      const newNames = names.map(function (name) {
+        return `${name} Jones`;
+      });
+      console.log(newNames);
+      //filter
+
+      const newGrades = grades.filter(function (grade) {
+        return grade > 80;
+      });
+
+      console.log(newGrades);
+
+      //reduce
+
+      const totalGrades = grades.reduce(function (acc, val) {
+        return acc + val;
+      });
+      console.log(totalGrades);
+
+      console.log(typeof totalGrades);
+
+      function average(num, len) {
+        return num / len;
+      }
+
+      console.log(average(totalGrades, grades.length));
+
+      console.log("Hello");
+      console.log(Math.floor(4.7));
+      console.log(Math.floor(-3.7));
+
+      console.log(Math.random());
+
+      console.log(Math.floor(Math.random() * 10) + 1); //random number between 1 and 10
+      console.log(Math.floor(Math.random() * 100) + 1); //random number between 1 and 100
+
+      const myString = "Hey Joe, where you goin with that gun in yo hand";
+      console.log(myString instanceof String); //false, myString is a string literal
+      console.log(average instanceof String); //false
+      console.log(typeof average); //function
+      let x = 1;
+      x = (x, x++); //comma operator
+      console.log("this is", x++);
+      console.log(x);
+      console.log("1" == 1); //true
+      console.log("1" === 1); //false
+      console.log("5" + 9); //59
+
+      let myDate = new Date();
+      console.log(myDate);
+      
+     
+    </script>
+  </body>
+</html>
