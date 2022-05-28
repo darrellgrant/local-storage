@@ -14,6 +14,11 @@
         border: 2px solid black;
         padding: 5px;
       }
+
+      #reset {
+        background-color: red;
+        color: white;
+      }
     </style>
 
     <title>Local Storage Sandbox</title>
@@ -29,6 +34,8 @@
     <button id="myButton">PRESS</button><br /><br />
     <div id="message"></div>
     <button id="completedBTN">COMPLETE</button><br /><br />
+    <br /><br />
+    <button id="reset">RESET LS</button>
 
     <script>
       const myTasks = {
@@ -56,17 +63,28 @@
 
       const myButton = document.querySelector("#myButton");
       const completedBTN = document.querySelector("#completedBTN");
+      const resetBTN = document.querySelector("#reset");
 
       let myMessage = document.querySelector("#message");
 
-      //const myString = localStorage.getItem("completedTasks");
+      function init() {
+        if (localStorage.getItem("completedTasks")) {
+          alert("yay");
+          const retrieveTasks = localStorage.getItem("completedTasks");
+          let completedTasks = JSON.parse(retrieveTasks);
+          return completedTasks;
+        }
 
-      //console.log(JSON.parse(myString));
+        if (localStorage.getItem("completedTasks") === null) {
+          alert("Sheeesh");
 
-      let completedTasks = [];
-      //console.log(myString);
-
-      const retrieveTasks = localStorage.getItem("completedTasks");
+          let completedTasks = [];
+          let completedTaskArray = JSON.stringify(completedTasks);
+          localStorage.setItem("completedTasks", completedTaskArray);
+          return completedTasks;
+        }
+      }
+      let ct = init();
 
       function lookUpNumber(obj) {
         let number = Math.floor(Math.random() * 20) + 1;
@@ -77,28 +95,14 @@
         myMessage.innerText = lookUpNumber(myTasks);
       });
       completedBTN.addEventListener("click", function () {
-        console.log(completedTasks);
-        completedTasks.push(myMessage.innerText);
-        let completedTaskArray = JSON.stringify(completedTasks);
+        ct.push(myMessage.innerText);
+        completedTaskArray = JSON.stringify(ct);
         localStorage.setItem("completedTasks", completedTaskArray);
       });
 
-      // const completedTaskArray = JSON.stringify(completedTasks);
-      // console.log(completedTaskArray);
-      // localStorage.setItem("completedTasks", completedTaskArray);
-
-      // const myObjString = JSON.stringify(myTasks);
-      // console.log(myObjString);
-      // console.log(typeof myObjString); //string
-      // localStorage.setItem("testItem", myObjString);
-
-      // const retrieveObj = localStorage.getItem("testItem");
-      // console.log(JSON.parse(retrieveObj));
-
-      // const arr = ["Hey", "Bartender"];
-      // localStorage.setItem("myARRAY", JSON.stringify(arr));
-      // arr.push("plasma");
-      // console.log(arr);
+      resetBTN.addEventListener("click", function () {
+        localStorage.removeItem("completedTasks");
+      });
     </script>
   </body>
 </html>
