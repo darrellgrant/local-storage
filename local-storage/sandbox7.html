@@ -4,41 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      .para-highlight {
-        width: 700px;
-        background-color: yellow;
-        border: 2px solid black;
-        padding: 5px;
-      }
-
-      #reset {
-        background-color: red;
-        color: white;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 
     <title>Local Storage Sandbox</title>
   </head>
   <body>
-    <h1>Local Storage Sandbox 1</h1>
-    <p class="para-highlight">
-      From MDN: The localStorage read-only property of the window interface
-      allows you to access a Storage object for the Document's origin; the
-      stored data is saved accross browser sessions.
-    </p>
-    <p></p>
-    <button id="myButton">PRESS</button><br /><br />
-    <div id="message"></div>
-    <button id="completedBTN">COMPLETE</button><br /><br />
-    <br /><br />
-    <button id="reset">RESET LS</button>
+    <div id="container">
+      <h1>Local Storage Sandbox 1</h1>
+      <p class="para-highlight">
+        From MDN: The localStorage read-only property of the window interface
+        allows you to access a Storage object for the Document's origin; the
+        stored data is saved accross browser sessions.
+      </p>
+      <p></p>
+      <button id="myButton">PRESS</button><br /><br />
+      <div id="message"></div>
+      <button id="completedBTN">COMPLETE</button><br /><br />
+      <br /><br />
+      <button id="reset">RESET LS</button>
+    </div>
 
-    <script src="script.js">
-      
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
