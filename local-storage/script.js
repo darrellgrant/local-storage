@@ -20,7 +20,7 @@ const myTasks = {
   19: "callbacks",
   20: "fetch API",
 };
-//delete comment
+
 const myButton = document.querySelector("#myButton");
 const completedBTN = document.querySelector("#completedBTN");
 const resetBTN = document.querySelector("#reset");
