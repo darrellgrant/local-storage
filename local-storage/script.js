@@ -46,7 +46,7 @@ function init() {
     return completedTasks;
   }
 }
-let ct = init(); //call init method
+let ct = init(); //call init method and store result in a variable
 
 function lookUpNumber(obj) {
   let number = Math.floor(Math.random() * 20) + 1;
