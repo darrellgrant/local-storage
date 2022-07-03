@@ -4,7 +4,7 @@ body {
 }
 .para-highlight {
   width: 700px;
-  background-color: yellow;
+  background-color: orange;
   border: 2px solid black;
   padding: 5px;
 }
